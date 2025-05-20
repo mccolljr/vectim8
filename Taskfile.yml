@@ -1,0 +1,21 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  dev:go:
+    desc: Run a dev server for the Go app
+    cmd: go run . --mode dev
+    silent: true
+
+  dev:ui:
+    desc: Run a dev server for the UI app
+    dir: ui
+    cmd: yarn webpack --watch
+    silent: true
+
+  dev:
+    desc: Run all dev servers
+    cmd: |
+      {{ .TASK_EXE }} --parallel -x -o prefixed dev:ui dev:go
+    silent: true
