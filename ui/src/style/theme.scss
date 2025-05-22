@@ -1,0 +1,57 @@
+@use "sass:map";
+@use "sass:color";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+$regular-font: "Noto Sans";
+$monospace-font: "Roboto Mono";
+
+$theme-fonts: (
+  regular: $regular-font,
+  monospace: $monospace-font,
+);
+
+@function getfont($fontname) {
+  @return map.get($theme-fonts, $fontname);
+}
+
+$primary-color: steelblue;
+$secondary-color: slategray;
+$warning-color: goldenrod;
+$danger-color: tomato;
+$success-color: forestgreen;
+$info-color: skyblue;
+$light-color: whitesmoke;
+$dark-color: darkslategray;
+
+$theme-colors: (
+  clear: transparent,
+  primary: $primary-color,
+  primary-dark: color.adjust($primary-color, $lightness: -10%),
+  primary-light: color.adjust($primary-color, $lightness: 10%),
+  secondary: $secondary-color,
+  secondary-dark: color.adjust($secondary-color, $lightness: -10%),
+  secondary-light: color.adjust($secondary-color, $lightness: 10%),
+  warning: $warning-color,
+  warning-dark: color.adjust($warning-color, $lightness: -10%),
+  warning-light: color.adjust($warning-color, $lightness: 10%),
+  danger: $danger-color,
+  danger-dark: color.adjust($danger-color, $lightness: -10%),
+  danger-light: color.adjust($danger-color, $lightness: 10%),
+  success: $success-color,
+  success-dark: color.adjust($success-color, $lightness: -10%),
+  success-light: color.adjust($success-color, $lightness: 10%),
+  info: $info-color,
+  info-dark: color.adjust($info-color, $lightness: -10%),
+  info-light: color.adjust($info-color, $lightness: 10%),
+  light: $light-color,
+  light-dark: color.adjust($light-color, $lightness: -10%),
+  light-light: color.adjust($light-color, $lightness: 10%),
+  dark: $dark-color,
+  dark-dark: color.adjust($dark-color, $lightness: -10%),
+  dark-light: color.adjust($dark-color, $lightness: 10%),
+);
+
+@function getcolor($colorname) {
+  @return map.get($theme-colors, $colorname);
+}

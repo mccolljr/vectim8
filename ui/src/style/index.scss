@@ -1,0 +1,87 @@
+@use "./reset.scss";
+@use "./theme.scss";
+
+body {
+  background-color: theme.getcolor(dark-dark);
+}
+
+* {
+  color: theme.getcolor(light-light);
+  font-family: theme.getfont(regular), sans-serif !important;
+}
+
+code,
+pre {
+  font-family: theme.getfont(monospace), monospace !important;
+
+  padding: 0.25em 0.5em 0.25em 0.5em;
+
+  &.rounded {
+    border-radius: 0.25em !important;
+  }
+
+  user-select: text !important;
+  color: theme.getcolor(light-light);
+  background-color: theme.getcolor(secondary);
+}
+
+@mixin button-variant($bgcolor, $fgcolor, $fgcolor-hover: $fgcolor, $fgcolor-active: $fgcolor) {
+  &.#{$bgcolor} {
+    color: theme.getcolor($fgcolor);
+    background-color: theme.getcolor($bgcolor);
+
+    &:hover {
+      color: theme.getcolor($fgcolor-hover);
+      background-color: theme.getcolor(#{$bgcolor}-light);
+    }
+
+    &:active {
+      color: theme.getcolor($fgcolor-active);
+      background-color: theme.getcolor(#{$bgcolor}-dark);
+    }
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 0;
+
+  cursor: pointer;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+
+  &.rounded {
+    border-radius: 0.5em !important;
+  }
+
+  @include button-variant(primary, light);
+  @include button-variant(secondary, light);
+  @include button-variant(warning, dark, $fgcolor-active: light);
+  @include button-variant(danger, light);
+  @include button-variant(success, light);
+  @include button-variant(info, dark);
+  @include button-variant(light, dark);
+  @include button-variant(dark, light);
+  @include button-variant(clear, light, light-light, light-dark);
+}
+
+ul.popup-menu {
+  position: fixed;
+
+  background-color: theme.getcolor(light-light);
+
+  & > li {
+    color: theme.getcolor(dark-dark);
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    min-width: 5em;
+
+    &:hover {
+      background-color: theme.getcolor(light-dark);
+    }
+
+    &:active {
+      color: theme.getcolor(light);
+      background-color: theme.getcolor(dark-light);
+    }
+  }
+}
