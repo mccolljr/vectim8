@@ -26,5 +26,6 @@ func run(args *Arguments) error {
 
 	http.Handle("/", http.FileServerFS(staticFiles))
 
+	fmt.Println("listening on http://localhost:8080/")
 	return http.ListenAndServe(":8080", nil)
 }

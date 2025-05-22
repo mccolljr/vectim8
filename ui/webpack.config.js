@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 /** @type import("webpack").Configuration */
 const webpackConfig = {
   entry: {
-    app: path.resolve(__dirname, "src/main.tsx"),
+    app: path.resolve(__dirname, "src/index.tsx"),
   },
   plugins: [new HtmlWebpackPlugin({ title: "Vectim8", scriptLoading: "blocking" })],
   resolve: {
