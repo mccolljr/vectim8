@@ -3,10 +3,10 @@
 
 body {
   background-color: theme.getcolor(dark-dark);
+  overflow: hidden;
 }
 
 * {
-  color: theme.getcolor(light-light);
   font-family: theme.getfont(regular), sans-serif !important;
 }
 
@@ -75,11 +75,15 @@ ul.popup-menu {
     padding: 0.25em 0.5em 0.25em 0.5em;
     min-width: 5em;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     &:hover {
       background-color: theme.getcolor(light-dark);
     }
 
-    &:active {
+    &.simple:active {
       color: theme.getcolor(light);
       background-color: theme.getcolor(dark-light);
     }
